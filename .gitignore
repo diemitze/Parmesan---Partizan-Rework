@@ -1,0 +1,12 @@
+# Build output
+bin/
+obj/
+
+# Packaged release artifact (attach to GitHub Releases instead of committing)
+*.zip
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
