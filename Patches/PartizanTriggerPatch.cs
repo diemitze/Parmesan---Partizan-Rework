@@ -12,7 +12,7 @@ namespace Parmesan.Patches
     {
         protected override MethodBase GetTargetMethod()
         {
-            return AccessTools.Method(typeof(AIPlaceLogicPartisan), "method_1");
+            return AccessTools.Method(typeof(AIPlaceLogicPartisan), nameof(AIPlaceLogicPartisan.OnPlayerEnter));
         }
 
         [PatchPrefix]
@@ -21,7 +21,7 @@ namespace Parmesan.Patches
             if (Plugin.Mode.Value == PartizanMode.Vanilla)
                 return true;
 
-            IPlayer target = __instance.method_0();
+            IPlayer target = __instance.PlayerWithWorstKarma();
             if (target == null)
             {
                 Plugin.Dbg("trigger fired but no eligible target — ignoring.");
@@ -29,19 +29,19 @@ namespace Parmesan.Patches
             }
 
             var trav = Traverse.Create(__instance);
-            var spawns = trav.Field("list_0").GetValue<List<BossLocationSpawn>>();
+            var spawns = trav.Field("allPartisans").GetValue<List<BossLocationSpawn>>();
             if (spawns != null)
             {
                 foreach (var spawn in spawns)
                 {
-                    var offset = new Vector3(__instance.method_2(), 0f, __instance.method_2());
+                    var offset = new Vector3(__instance.RndCoord(), 0f, __instance.RndCoord());
                     spawn.PerfectPos = target.Position + offset;
                 }
             }
 
-            trav.Field("bool_1").SetValue(false);
+            trav.Field("_isPartisansWavesinited").SetValue(false);
 
-            Singleton<BotEventHandler>.Instance.AnyEvent("PARTISAN_TRIGGER");
+            Singleton<GlobalEventDispatcher>.Instance.AnyEvent("PARTISAN_TRIGGER");
 
             Plugin.Dbg("trigger redirected from " + (player?.Profile?.Nickname ?? "?") +
                        " to " + (target.Profile?.Nickname ?? "?") + " (AI=" + target.IsAI + ")");

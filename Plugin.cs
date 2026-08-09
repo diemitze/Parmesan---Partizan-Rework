@@ -17,7 +17,7 @@ namespace Parmesan
     {
         public const string GUID = "com.20fpsguy.parmesan";
         public const string NAME = "Parmesan - Partizan Rework";
-        public const string VERSION = "1.0.0";
+        public const string VERSION = "1.0.1";
 
         public static ManualLogSource Log;
         public static ConfigEntry<PartizanMode> Mode;

@@ -11,7 +11,7 @@ namespace Parmesan.Patches
     {
         protected override MethodBase GetTargetMethod()
         {
-            return AccessTools.Method(typeof(AIPlaceLogicPartisan), "method_0");
+            return AccessTools.Method(typeof(AIPlaceLogicPartisan), nameof(AIPlaceLogicPartisan.PlayerWithWorstKarma));
         }
 
         [PatchPrefix]

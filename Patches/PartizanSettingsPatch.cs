@@ -11,7 +11,7 @@ namespace Parmesan.Patches
 
         protected override MethodBase GetTargetMethod()
         {
-            return AccessTools.Method(typeof(LocalBotSettingsProviderClass), nameof(LocalBotSettingsProviderClass.GetSettings));
+            return AccessTools.Method(typeof(BotInternalSettingsController), nameof(BotInternalSettingsController.GetSettings));
         }
 
         [PatchPostfix]

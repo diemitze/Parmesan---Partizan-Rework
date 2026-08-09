@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -6,7 +6,7 @@
     <RootNamespace>Parmesan</RootNamespace>
     <Nullable>disable</Nullable>
     <Authors>20fpsguy</Authors>
-    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
     <FileVersion>$(AssemblyVersion)</FileVersion>
     <Configurations>Debug;Release</Configurations>
     <Version>$(AssemblyVersion)</Version>
@@ -17,36 +17,36 @@
 
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>D:\SPT dev\BepInEx\core\0Harmony.dll</HintPath>
+      <HintPath>D:\SPT 4.1\BepInEx\core\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="spt-common">
-      <HintPath>D:\SPT dev\BepInEx\plugins\spt\spt-common.dll</HintPath>
+      <HintPath>D:\SPT 4.1\BepInEx\plugins\spt\spt-common.dll</HintPath>
     </Reference>
     <Reference Include="spt-reflection">
-      <HintPath>D:\SPT dev\BepInEx\plugins\spt\spt-reflection.dll</HintPath>
+      <HintPath>D:\SPT 4.1\BepInEx\plugins\spt\spt-reflection.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>D:\SPT dev\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>D:\SPT 4.1\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx">
-      <HintPath>D:\SPT dev\BepInEx\core\BepInEx.dll</HintPath>
+      <HintPath>D:\SPT 4.1\BepInEx\core\BepInEx.dll</HintPath>
     </Reference>
     <Reference Include="Comfort">
-      <HintPath>D:\SPT dev\EscapeFromTarkov_Data\Managed\Comfort.dll</HintPath>
+      <HintPath>D:\SPT 4.1\EscapeFromTarkov_Data\Managed\Comfort.dll</HintPath>
     </Reference>
     <Reference Include="DissonanceVoip">
-      <HintPath>D:\SPT dev\EscapeFromTarkov_Data\Managed\DissonanceVoip.dll</HintPath>
+      <HintPath>D:\SPT 4.1\EscapeFromTarkov_Data\Managed\DissonanceVoip.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>D:\SPT dev\EscapeFromTarkov_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>D:\SPT 4.1\EscapeFromTarkov_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>D:\SPT dev\EscapeFromTarkov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>D:\SPT 4.1\EscapeFromTarkov_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy &quot;$(TargetPath)&quot; &quot;D:\SPT dev\BepInEx\plugins\$(TargetFileName)&quot;" />
+    <Exec Command="copy &quot;$(TargetPath)&quot; &quot;D:\SPT 4.1\BepInEx\plugins\$(TargetFileName)&quot;" />
   </Target>
 
   <Target Name="PackageModForDistribution" AfterTargets="Build">
